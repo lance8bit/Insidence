@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "614950219704",
+    "project_id": "insidence-c60da",
+    "storage_bucket": "insidence-c60da.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:614950219704:android:e98e156127c14121e7e94d",
+        "android_client_info": {
+          "package_name": "com.example.insidence"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "614950219704-v1n0il0je45i4rlnpeqqsjtnqas8ehr3.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBtSq4tKoLC8r2cuPYD7nXSvEvb6ifL4p0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "614950219704-v1n0il0je45i4rlnpeqqsjtnqas8ehr3.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
