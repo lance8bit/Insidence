@@ -13,6 +13,7 @@ import com.google.android.gms.auth.api.signin.GoogleSignIn;
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
 import com.google.android.gms.auth.api.signin.GoogleSignInClient;
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
+import com.google.android.gms.common.SignInButton;
 import com.google.android.gms.common.api.ApiException;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -27,6 +28,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     private FirebaseAuth mAuth;
     private GoogleSignInClient mGoogleSignInClient;
+    private SignInButton signInButton;
     protected static int RC_SIGN_IN = 1;
 
     @Override
@@ -34,7 +36,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-
+        getSupportActionBar().hide();
 
         mAuth = FirebaseAuth.getInstance();
 
@@ -42,6 +44,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 .requestIdToken(getString(R.string.default_web_client_id))
                 .requestEmail()
                 .build();
+
+        mGoogleSignInClient = GoogleSignIn.getClient(this, gso);
+
+        signInButton = (SignInButton) findViewById(R.id.google_sign_button);
+        signInButton.setOnClickListener(this);
     }
 
     private void firebaseAuthWithGoogle(String idToken) {
@@ -53,6 +60,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                         if (task.isSuccessful()){
                             Log.d("LOGINOK", "signInWidthCredential:success");
                             FirebaseUser user = mAuth.getCurrentUser();
+
+                            Intent dashboardAct = new Intent(getApplicationContext(), DashboardActivity.class);
+                            startActivity(dashboardAct);
                         } else {
                             Log.w("LOGINERROR", "signInWidthCredential:failure", task.getException());
                             Snackbar snackbar = Snackbar.make(findViewById(R.id.constraintBox), "Authentication Failed", Snackbar.LENGTH_SHORT);
@@ -85,7 +95,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 Log.d("LOGGEDIN", "firebaseAuthWithGoogle>" + account.getId());
                 firebaseAuthWithGoogle(account.getIdToken());
             }catch (ApiException e){
-                Log.w("EXCEPTAPI", "Google sign in failed");
+                Log.w("EXCEPTAPI", e.toString());
             }
         }
     }

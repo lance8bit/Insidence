@@ -9,4 +9,19 @@
     <color name="white">#FFFFFFFF</color>
     <color name="green_bg">#27c375</color>
     <color name="blue_bg">#1f2d73</color>
+    <color name="primary_color">#68F3AD</color>
+
+    <color name="primary">#ff9500</color>
+    <color name="secondary">#FFAA00</color>
+    <color name="primary_dark">#f27610</color>
+    <color name="primary_light">#FFE7C4</color>
+    <color name="accent">#ff9400</color>
+    <color name="primary_text">#212121</color>
+    <color name="secondary_text">#757575</color>
+    <color name="icons">#FFFFFF</color>
+    <color name="divider">#BDBDBD</color>
+
+    <color name="gradient_primary">#008577</color>
+    <color name="gradient_secondary">#00574B</color>
+    <color name="gradient_accent">#D81B60</color>
 </resources>
