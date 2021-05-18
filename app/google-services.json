@@ -1,18 +1,27 @@
 {
   "project_info": {
     "project_number": "614950219704",
+    "firebase_url": "https://insidence-c60da-default-rtdb.firebaseio.com",
     "project_id": "insidence-c60da",
     "storage_bucket": "insidence-c60da.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:614950219704:android:e98e156127c14121e7e94d",
+        "mobilesdk_app_id": "1:614950219704:android:d0560cecd7144be1e7e94d",
         "android_client_info": {
           "package_name": "com.example.insidence"
         }
       },
       "oauth_client": [
+        {
+          "client_id": "614950219704-jodj7vu105cfkfs9r0nm0r0vijtjihkq.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.insidence",
+            "certificate_hash": "e25ad7db1c086a28358d87216dc658d39a2f5f01"
+          }
+        },
         {
           "client_id": "614950219704-v1n0il0je45i4rlnpeqqsjtnqas8ehr3.apps.googleusercontent.com",
           "client_type": 3
@@ -27,7 +36,7 @@
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "614950219704-v1n0il0je45i4rlnpeqqsjtnqas8ehr3.apps.googleusercontent.com",
+              "client_id": "614950219704-6ibfc3k4clng6ariab4rap6to9a16v66.apps.googleusercontent.com",
               "client_type": 3
             }
           ]

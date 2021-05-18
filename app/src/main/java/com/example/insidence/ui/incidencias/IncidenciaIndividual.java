@@ -17,7 +17,7 @@ import com.example.insidence.ui.chat.ChatFragment;
 public class IncidenciaIndividual extends AppCompatActivity {
 
     private TextView userIdtv, techUserId, deviceIdtv, dateInctv, statusInctv, titleInctv, infoInctv;
-    private Button goBackBtn, chatBtn;
+    private Button goBackBtn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -65,15 +65,5 @@ public class IncidenciaIndividual extends AppCompatActivity {
         bundle.putString("idUser", incidencia.getEmpUser());
         bundle.putString("idTech", incidencia.getTechUser());
         bundle.putString("idinc", incidencia.getTechUser());
-
-        ChatFragment chatFragment = new ChatFragment();
-        chatFragment.setArguments(bundle);
-
-        FragmentManager fragmentManager = getSupportFragmentManager();
-        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-        fragmentTransaction.replace(R.id.fragment_container_incidence, chatFragment);
-        fragmentTransaction.addToBackStack(null);
-        fragmentTransaction.commit();
-
     }
 }

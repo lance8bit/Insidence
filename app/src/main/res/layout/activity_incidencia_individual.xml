@@ -185,20 +185,5 @@
 
         </androidx.constraintlayout.widget.ConstraintLayout>
     </LinearLayout>
-    <LinearLayout
-        android:id="@+id/containerRecyclerChat"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical">
-
-        <fragment
-            android:id="@+id/fragment_container_incidence"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="20dp"
-            tools:layout_editor_absoluteX="20dp"
-            tools:layout_editor_absoluteY="30dp" />
-
-    </LinearLayout>
 
 </ScrollView>
