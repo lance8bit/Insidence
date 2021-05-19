@@ -10,9 +10,9 @@ public class Incidencias implements Serializable {
 
     /*
      * Status:
-     * 0 - New
-     * 1 - Working
-     * 2 - Solved
+     * 0 - Pendiente
+     * 1 - En revisión
+     * 2 - Solucionada
      */
     private int statusIncidencia;
 

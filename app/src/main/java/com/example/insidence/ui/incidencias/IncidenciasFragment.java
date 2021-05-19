@@ -5,6 +5,8 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
+import android.widget.Spinner;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
@@ -30,11 +32,13 @@ public class IncidenciasFragment extends Fragment {
     private FirebaseDatabase database;
     private DatabaseReference refIncidencias;
     private ArrayList<Incidencias> arrayListIncidencias;
+    private Spinner spinnerFilt;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
         View root = inflater.inflate(R.layout.fragment_incidencias, container, false);
         recyclerView = root.findViewById(R.id.recyclerIncidencias);
+        spinnerFilt = root.findViewById(R.id.filterInc);
 
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
 
@@ -53,20 +57,46 @@ public class IncidenciasFragment extends Fragment {
             recyclerView.setAdapter(mainAdapter);
             Log.i("CURID", uid);
 
-            refIncidencias.addValueEventListener(new ValueEventListener() {
+            spinnerFilt.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+                int statusFilt = 0;
+
                 @Override
-                public void onDataChange(@NonNull DataSnapshot snapshot) {
-                    for (DataSnapshot dataSnapshot : snapshot.getChildren()){
-                        Incidencias incidencia = dataSnapshot.getValue(Incidencias.class);
-                        if (incidencia.getEmpUser().contains(uid)) {
-                            arrayListIncidencias.add(incidencia);
-                        }
+                public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                    switch (position){
+                        case 0:
+                            statusFilt = 0;
+                            break;
+                        case 1:
+                            statusFilt = 1;
+                            break;
+                        case 2:
+                            statusFilt = 2;
+                            break;
                     }
-                    mainAdapter.notifyDataSetChanged();
+
+                    refIncidencias.addValueEventListener(new ValueEventListener() {
+                        @Override
+                        public void onDataChange(@NonNull DataSnapshot snapshot) {
+                            arrayListIncidencias.clear();
+
+                            for (DataSnapshot dataSnapshot : snapshot.getChildren()){
+                                Incidencias incidencia = dataSnapshot.getValue(Incidencias.class);
+                                if (incidencia.getEmpUser().contains(uid) && incidencia.getStatusIncidencia() == statusFilt) {
+                                    arrayListIncidencias.add(incidencia);
+                                }
+                            }
+                            mainAdapter.notifyDataSetChanged();
+                        }
+
+                        @Override
+                        public void onCancelled(@NonNull DatabaseError error) {
+
+                        }
+                    });
                 }
 
                 @Override
-                public void onCancelled(@NonNull DatabaseError error) {
+                public void onNothingSelected(AdapterView<?> parent) {
 
                 }
             });

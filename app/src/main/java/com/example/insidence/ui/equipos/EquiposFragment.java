@@ -54,6 +54,7 @@ public class EquiposFragment extends Fragment {
             refDevices.addValueEventListener(new ValueEventListener() {
                 @Override
                 public void onDataChange(@NonNull DataSnapshot snapshot) {
+                    arrayListEquipos.clear();
                     for (DataSnapshot dataSnapshot : snapshot.getChildren()){
                         Equipos equipo = dataSnapshot.getValue(Equipos.class);
                         if (equipo.getUsers().containsValue(uid)) {

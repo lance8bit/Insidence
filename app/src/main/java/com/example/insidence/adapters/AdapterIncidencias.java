@@ -55,6 +55,20 @@ public class AdapterIncidencias extends RecyclerView.Adapter<AdapterIncidencias.
                 break;
         }
 
+        switch (incidencia.getStatusIncidencia()){
+            case 0:
+                holder.statusInc.setText("Abierta");
+                holder.statusInc.setTextColor(Color.parseColor("#FF03A9F4"));
+                break;
+            case 1:
+                holder.statusInc.setText("Pendiente");
+                holder.statusInc.setTextColor(Color.parseColor("#FFC107"));
+                break;
+            case 2:
+                holder.statusInc.setText("Resuelta");
+                holder.statusInc.setTextColor(Color.parseColor("#4CAF50"));
+                break;
+        }
 
         holder.card_block.setOnClickListener(new View.OnClickListener(){
 
@@ -75,7 +89,7 @@ public class AdapterIncidencias extends RecyclerView.Adapter<AdapterIncidencias.
 
     public static class MyViewHolder extends RecyclerView.ViewHolder{
 
-        TextView titleIncidencia, infoIncidencia, idUser;
+        TextView titleIncidencia, infoIncidencia, idUser, statusInc;
         CardView card_block;
         LinearLayout backgroundPriority;
 
@@ -86,6 +100,7 @@ public class AdapterIncidencias extends RecyclerView.Adapter<AdapterIncidencias.
             infoIncidencia = itemView.findViewById(R.id.descIndicidencia);
             idUser = itemView.findViewById(R.id.userId);
             card_block = itemView.findViewById(R.id.cardview_cont);
+            statusInc = itemView.findViewById(R.id.statusInc);
         }
     }
 

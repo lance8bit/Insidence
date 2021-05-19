@@ -1,25 +1,154 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
     android:layout_margin="20dp"
     tools:context=".ui.equipos.AddEquipoFragment">
 
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/deviceNameTv"
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:boxBackgroundColor="@color/white"
-        app:errorEnabled="true">
+        android:layout_height="match_parent"
+        android:orientation="vertical">
 
-        <com.google.android.material.textfield.TextInputEditText
+        <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Asunto"
-            android:inputType="text"/>
-    </com.google.android.material.textfield.TextInputLayout>
+            android:layout_marginBottom="20dp"
+            app:boxBackgroundColor="@color/white"
+            app:errorEnabled="true">
+            <EditText
+                android:id="@+id/nameEquipoET"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:hint="Nombre del equipo"
+                android:inputType="text"/>
+        </com.google.android.material.textfield.TextInputLayout>
 
-</LinearLayout>
+        <TextView
+            android:id="@+id/textView3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:paddingLeft="4sp"
+            android:paddingRight="4sp"
+            android:text="Estado"
+            android:textAppearance="@style/TextAppearance.Design.Counter"
+            android:textColor="?android:attr/textColorHint" />
+
+        <Spinner
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:id="@+id/statusDeviceSp"
+            android:entries="@array/statusEquipo"
+            android:layout_marginBottom="20dp"/>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="20dp"
+            app:boxBackgroundColor="@color/white"
+            app:errorEnabled="true">
+            <EditText
+                android:id="@+id/deviceIP_ET"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:hint="IP Equipo"
+                android:inputType="text"/>
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <TextView
+            android:id="@+id/textView4"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:paddingLeft="4sp"
+            android:paddingRight="4sp"
+            android:text="Prioridad"
+            android:textAppearance="@style/TextAppearance.Design.Counter"
+            android:textColor="?android:attr/textColorHint" />
+
+        <Spinner
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:id="@+id/prioridadEquipoSp"
+            android:entries="@array/prioridadEquipo"
+            android:layout_marginBottom="20dp"/>
+
+        <TextView
+            android:id="@+id/textView5"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:paddingLeft="4sp"
+            android:paddingRight="4sp"
+            android:text="Hardware"
+            android:textAppearance="@style/TextAppearance.Design.Counter"
+            android:textColor="?android:attr/textColorHint" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="20dp"
+            app:boxBackgroundColor="@color/white"
+            app:errorEnabled="true">
+            <EditText
+                android:id="@+id/deviceRAM_ET"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:hint="RAM Equipo"
+                android:inputType="text"/>
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="20dp"
+            app:boxBackgroundColor="@color/white"
+            app:errorEnabled="true">
+            <EditText
+                android:id="@+id/deviceGPU_ET"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:hint="GPU Equipo"
+                android:inputType="text"/>
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="20dp"
+            app:boxBackgroundColor="@color/white"
+            app:errorEnabled="true">
+            <EditText
+                android:id="@+id/deviceMB_ET"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:hint="Placa base Equipo"
+                android:inputType="text"/>
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="20dp"
+            app:boxBackgroundColor="@color/white"
+            app:errorEnabled="true">
+            <EditText
+                android:id="@+id/deviceProcessorET"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:hint="Procesador Equipo"
+                android:inputType="text"/>
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <Button
+            android:id="@+id/addEquipoBtn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="AÑADIR EQUIPO"/>
+
+    </LinearLayout>
+
+</ScrollView>

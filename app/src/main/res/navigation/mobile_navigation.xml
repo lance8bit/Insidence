@@ -3,13 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/mobile_navigation"
-    app:startDestination="@+id/nav_home">
-
-    <fragment
-        android:id="@+id/nav_home"
-        android:name="com.example.insidence.ui.home.HomeFragment"
-        android:label="@string/menu_home"
-        tools:layout="@layout/fragment_home" />
+    app:startDestination="@+id/nav_incidencias">
 
     <fragment
         android:id="@+id/nav_equipos"
@@ -22,4 +16,10 @@
         android:name="com.example.insidence.ui.incidencias.IncidenciasFragment"
         android:label="@string/menu_incidencias"
         tools:layout="@layout/fragment_incidencias" />
+
+    <fragment
+        android:id="@+id/nav_add_equipo"
+        android:name="com.example.insidence.ui.equipos.AddEquipoFragment"
+        android:label="Añadir Equipo"
+        tools:layout="@layout/fragment_add_equipo" />
 </navigation>
